@@ -11,6 +11,7 @@ defmodule Words do
     |> String.replace(~r/[!|&|@|\$|%|\^|&|,]+/, "")
     |> String.split([" ", "_"])
     |> Map.new(fn (word) -> {word, occurances(word, sentence)} end)
+    |> Map.delete(":")
   end
 
   def occurances(word, sentence) do
